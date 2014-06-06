@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1401631018 source:c:\users\hp\desktop\trial\main.cpp
+	<string>
+	<iostream>
+	<pcap.h>
+
+1401877600 source:c:\users\hp\desktop\trial\new.cpp
+	<string>
+	<iostream>
+	<windows.h>
+	<winsock2.h>
+	<pcap.h>
+
