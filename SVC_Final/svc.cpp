@@ -1,6 +1,4 @@
-
-//deletes empty files n handles index file also
-//all files stored in 1 folder only
+//store the file to be tested and "index.txt" in the same location as the program
 
 #include<iostream>
 #include<conio.h>
@@ -21,9 +19,8 @@ class svcfile
 
     svcfile()
     {
-        strcpy(fname,"C:\\codeblocks_programs\\svc_files\\test.txt");
+        strcpy(fname,"test.txt");
     }
-//change the directory of test.txt to something on your computer.
     void append_version(int);
     int compare(char *);
     void save_version();
@@ -32,25 +29,29 @@ class svcfile
 
 void svcfile::append_version(int flag)  //appends the newest version number from index.txt file to file name
 {
-    findex.open("index.txt",ios::in|ios::out);
+    findex.open("index.txt",ios::in);
     int latest_ind;
     char latest_index[10];
 
     findex>>latest_index;
     latest_ind=atoi(latest_index);
     if(flag==1)
+    {
       latest_ind++;
+    }
+
     else
+    {
       latest_ind--;
+    }
+
 
     itoa(latest_ind,latest_index,10);
-    cout<<"\n Latest version : "<<latest_ind;
-
     findex.close();
-    findex.open("index.txt",ios::in|ios::out);
+    findex.open("index.txt",ios::out);
     findex<<latest_index;
     findex.close();
-
+    cout<<"\n Latest version : "<<latest_index;
     int i=0;
     while(fname[i]!='.')
     {
@@ -117,12 +118,14 @@ void svcfile::save_version()             //commits latest version
             cntline++;
             cntchar=0;
         }
+        if(fp.eof())
+          break;
         ftemp<<ch;
 
     }//end while !fp.eof()
     fp.close();
-    cout<<"\n Version Saved!";
     ftemp.close();
+    cout<<"\n Version Saved!";
 }
 
 void svcfile::print_version(char *arg)         //prints the latest version of test.txt
@@ -131,7 +134,7 @@ void svcfile::print_version(char *arg)         //prints the latest version of te
 
     if(!(isalpha((int)arg)))
     {
-        findex.open("index.txt",ios::in|ios::out);
+        findex.open("index.txt",ios::in);
         findex>>latest_index;
         findex.close();
         if(atoi(arg)>atoi(latest_index))
