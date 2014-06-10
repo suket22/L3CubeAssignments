@@ -33,7 +33,7 @@ Assignment 4 - Simple Version Control
 Language of Implementation - C++
 Environment used - CodeBlocks on Windows
 External Dependencies - None
-Usage - Place "test.txt" (the file undergoing svc) in the same directory as "svc.cpp" and execute.
+Usage - Place "test.txt" (the file undergoing svc) and "index.txt" in the same directory as "svc.cpp" and execute.
 
 ----------------------------------------------------------------------------------------
 Assignment 5 - Duplicate Files on a hard drive
